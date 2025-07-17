@@ -1,52 +1,73 @@
-// 1. Инициализация PWA
+// Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
-    initApp();
+  // Проверка поддержки PWA
+  if (!('serviceWorker' in navigator)) {
+    console.error('PWA не поддерживается в этом браузере');
+    return;
+  }
+
+  // Регистрация Service Worker
+  registerServiceWorker();
+
+  // Инициализация компонентов
+  initFeedbackForm();
+  initInstallPrompt();
 });
 
-function initApp() {
-    // 2. Проверка поддержки PWA
-    if (!('serviceWorker' in navigator)) {
-        alert('Ваш браузер не поддерживает PWA!');
-        return;
-    }
-
-    // 3. Работа с отзывами (пример)
-    const feedbackForm = document.getElementById('feedback-form');
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', handleSubmit);
-    }
-
-    // 4. Проверка оффлайн-режима
-    updateOnlineStatus();
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+// Регистрация Service Worker
+function registerServiceWorker() {
+  navigator.serviceWorker.register('/sw.js')
+    .then(registration => {
+      console.log('SW зарегистрирован:', registration.scope);
+      registration.update(); // Проверка обновлений
+    })
+    .catch(error => {
+      console.error('Ошибка регистрации SW:', error);
+    });
 }
 
-// Обработка формы отзыва
-function handleSubmit(e) {
+// Работа с формой отзывов
+function initFeedbackForm() {
+  const form = document.getElementById('feedback-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-
-    // Здесь можно добавить отправку данных или сохранение локально
-    console.log('Отправлено:', Object.fromEntries(formData));
-    e.target.reset();
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    
+    // Сохранение в IndexedDB или отправка на сервер
+    await saveFeedback(data);
+    form.reset();
+    
+    alert('Отзыв сохранён!');
+  });
 }
 
-// Показ статуса сети
-function updateOnlineStatus() {
-    const statusElement = document.getElementById('network-status');
-    if (statusElement) {
-        statusElement.textContent = navigator.onLine ? 'Онлайн' : 'Оффлайн';
-    }
-}
+// Логика установки PWA
+function initInstallPrompt() {
+  let deferredPrompt;
 
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
+  window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById('install-btn').style.display = 'block';
-});
+  });
 
-document.getElementById('install-btn').addEventListener('click', () => {
+  document.getElementById('install-btn').addEventListener('click', () => {
     deferredPrompt.prompt();
-});
+    deferredPrompt.userChoice.then(choice => {
+      if (choice.outcome === 'accepted') {
+        console.log('Пользователь установил PWA');
+      }
+    });
+  });
+}
+
+// Сохранение отзывов (заглушка)
+async function saveFeedback(data) {
+  // Реальная реализация может использовать IndexedDB или fetch()
+  console.log('Сохранение отзыва:', data);
+  return new Promise(resolve => setTimeout(resolve, 500));
+}
