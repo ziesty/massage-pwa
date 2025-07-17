@@ -71,3 +71,11 @@ async function saveFeedback(data) {
   console.log('Сохранение отзыва:', data);
   return new Promise(resolve => setTimeout(resolve, 500));
 }
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered'))
+      .catch(err => console.log('SW registration failed: ', err));
+  });
+}
