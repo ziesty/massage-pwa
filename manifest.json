@@ -1,5 +1,5 @@
 {
-  "name": "Время Тишины",
+  "name": "Массажный кабинет",
   "short_name": "Массаж",
   "start_url": "/",
   "display": "standalone",
@@ -16,5 +16,6 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "scope": "/"
 }
