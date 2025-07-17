@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О кабинете | Время Тишины</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- PWA мета-теги -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#a3cbb0">
+
+    <!-- iOS мета-теги -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
+    <!-- Инициализация Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Время Тишины</h1>
+        <p>пространство заботы, нежности и восстановления</p>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="feedback.php">Обратная связь</a>
+            <a href="about.html">О кабинете</a>
+        </nav>
+    </header>
+
+    <section class="section about">
+        <h2>О кабинете</h2>
+        <p>
+            «Время Тишины» — это не просто массажный кабинет. Это пространство, где каждая деталь создана, чтобы
+            подарить тебе покой, тёплую заботу и ощущение мягкого прикосновения природы.
+        </p>
+        <p>
+            Моя философия — бережное, осознанное прикосновение. Здесь нет боли и давления, только нежность, расслабление
+            и возвращение к себе. Используются исключительно мягкие техники, подходящие для любого состояния — будь то
+            усталость, тревожность или просто желание почувствовать себя в безопасности.
+        </p>
+        <p>
+            Я работаю с морскими водорослями, натуральными средствами и тщательно подобранной атмосферой. Всё — ради
+            ощущения лёгкости, как будто тело вспоминает, что оно может дышать, а душа — парить.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Время Тишины | Массажный кабинет
+    </footer>
+</body>
+
+</html>

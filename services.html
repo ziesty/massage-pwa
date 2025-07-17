@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услуги | Время Тишины</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- PWA мета-теги -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#a3cbb0">
+
+    <!-- iOS мета-теги -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
+    <!-- Инициализация Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Время Тишины</h1>
+        <p>пространство заботы, нежности и восстановления</p>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="feedback.php">Обратная связь</a>
+            <a href="about.html">О кабинете</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Релакс-массаж</h3>
+                <p>Мягкие, плавные прикосновения для снятия напряжения и восстановления внутреннего баланса.</p>
+            </div>
+            <div class="service-card">
+                <h3>Обёртывание водорослями</h3>
+                <p>Очищение и питание кожи морскими компонентами. Омоложение и восстановление тонуса.</p>
+            </div>
+            <div class="service-card">
+                <h3>Массаж лица</h3>
+                <p>Улучшение микроциркуляции, сияние и расслабление мимических мышц. Только бережные техники.</p>
+            </div>
+            <div class="service-card">
+                <h3>Массаж лица с водорослями</h3>
+                <p>Нежное воздействие и питание кожи активными морскими элементами. Гармония прикосновений и природы.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Время Тишины | Массажный кабинет
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Время Тишины</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- PWA мета-теги -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#a3cbb0">
+
+    <!-- iOS мета-теги -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
+    <!-- Инициализация Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Время Тишины</h1>
+        <p>пространство заботы, нежности и восстановления</p>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="feedback.php">Обратная связь</a>
+            <a href="about.html">О кабинете</a>
+        </nav>
+    </header>
+
+    <section class="section intro">
+        <img src="img/cabinet.jpg" alt="Массажный кабинет" width="500" height="700">
+        <div class="intro-text">
+            <h2>Добро пожаловать</h2>
+            <p>
+                Здесь тебя ждет тишина, мягкое прикосновение и глубокое расслабление.
+                Только бережные и заботливые техники массажа, созданные для того,
+                чтобы вернуть тебе чувство покоя и гармонии.
+            </p>
+            <a href="booking.html" class="btn">Записаться</a>
+        </div>
+    </section>
+
+    <section class="section gallery">
+        <h2>Галерея</h2>
+        <div class="gallery-container">
+            <img src="img/gallery1.jpg" alt="Фото кабинета">
+            <img src="img/gallery2.jpg" alt="Массажист за работой">
+            <img src="img/gallery3.jpg" alt="Уютная атмосфера">
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Время Тишины | Массажный кабинет
+    </footer>
+</body>
+
+</html>
