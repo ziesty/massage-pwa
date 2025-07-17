@@ -1,21 +1,27 @@
 {
-  "name": "Массажный кабинет",
-  "short_name": "Массаж",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#a3cbb0",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "scope": "/"
+    "name": "Время Тишины",
+    "short_name": "Время Тишины",
+    "description": "Пространство заботы, нежности и восстановления",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f7f9f8",
+    "theme_color": "#a3cbb0",
+    "icons": [
+        {
+            "src": "img/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "img/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "img/icon-maskable.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ]
 }

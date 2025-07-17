@@ -29,6 +29,18 @@ $result = $conn->query("SELECT * FROM feedback ORDER BY created_at DESC");
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- PWA meta tags -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#a3cbb0">
+
+<!-- iOS meta tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Время Тишины">
+<link rel="apple-touch-icon" href="/img/icon-192.png">
+
+<!-- Favicon -->
+<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <title>Обратная связь | Время Тишины</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -310,6 +322,19 @@ $result = $conn->query("SELECT * FROM feedback ORDER BY created_at DESC");
   <footer>
     &copy; 2025 Время Тишины | Массажный кабинет
   </footer>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('ServiceWorker registration successful');
+        })
+        .catch(err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
 </body>
 </html>
 <?php
